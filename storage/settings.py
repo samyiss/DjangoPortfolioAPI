@@ -25,13 +25,12 @@ SECRET_KEY = 'django-insecure-@in%*ikz37$$hby1df$aq3flc&cnla4866h$_x@fq&9lvca^tt
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'whitenoise',
     'api.apps.ApiConfig',
     'rest_framework',
     'django.contrib.admin',
@@ -71,6 +70,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'storage.wsgi.application'
 
 
@@ -79,12 +79,8 @@ WSGI_APPLICATION = 'storage.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'HOST': 'aws-0-ca-central-1.pooler.supabase.com',
-        'NAME': 'postgres',
-        'USER': 'postgres.vnhtbjvcgatofbuctxiu',
-        'PORT': '6543',
-        'PASSWORD': 'Yasama-1967@',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -124,12 +120,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-MEDIA_URL = 'contents/'
-MEDIA_ROOT = BASE_DIR / 'static/contents'
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
