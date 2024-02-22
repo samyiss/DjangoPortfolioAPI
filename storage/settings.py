@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise',
     'api.apps.ApiConfig',
     'rest_framework',
     'django.contrib.admin',
@@ -125,6 +126,11 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
+MEDIA_URL = 'contents/'
+MEDIA_ROOT = BASE_DIR / 'static/contents'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
